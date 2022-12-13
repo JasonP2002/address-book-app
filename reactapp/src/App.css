@@ -1,0 +1,88 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+/*My CSS*/
+h1 {
+  background-color: grey;
+}
+
+h2 {
+  color: white;
+}
+
+.header {
+  color: white;
+}
+
+.header-table {
+  background-color: darkcyan;
+}
+
+.table {
+  background-color: lightblue;
+}
+
+.header-input {
+  background-color: darkred;
+}
+
+.input {
+  background-color: lightcoral;
+}
+
+/*Table*/
+table {
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+th {
+  background-color: lightgrey;
+}
+
+td {
+  background-color: white;
+}
+
+td, th {
+  border: 1px solid #999;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+tr:hover {
+  background-color: lightgrey;
+}
+
+button {
+  background-color: lightgrey;
+  color: black;
+  padding: 10px 32px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  margin-left: 20px;
+}
+
+/*
+.content {
+  position: relative;
+  float: left;
+  height: 100%;
+}
+*/
