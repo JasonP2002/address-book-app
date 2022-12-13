@@ -1,15 +1,13 @@
 const express = require('express');
-const http = require('http');
 const app = express();
-const cors = require('cors');
 const data = require('./records.json');
-const server = http.createServer(app);
-const fs = require('fs');
-
 const port = 3001;
-require("dotenv").config();
 
 console.log("DB: ", data);
+
+app.get("/api", async (req, res, next) => {
+    res.json(data);
+});
 
 app.get("/add", async (req, res, next) => {
     const add = data.push({"first_name": "Test", "last_name": "Name", "phone": "01792327382", "email": "testemail@gmail.com"});
@@ -19,4 +17,10 @@ app.get("/add", async (req, res, next) => {
     });
 });
 
-server.listen(port, () => console.log("Listening on port 3001"));
+app.listen(port, () => console.log(`Listening on port ${port}`));
+
+//const http = require('http');
+//const cors = require('cors');
+//const server = http.createServer(app);
+//const fs = require('fs');
+//require("dotenv").config();

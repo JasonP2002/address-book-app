@@ -1,14 +1,25 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Axios from 'axios';
 
 function InputContent() {
   const url = ""
+
   const [data, setData] = useState({
     first_name: "",
     last_name: "",
     phone: "",
     email: ""
   });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await fetch(url);
+      const jsonResult = result.json();
+      setData(jsonResult);
+    }
+
+    fetchData();
+  }, []);
 
   function handle(e) {
     const newdata = {...data }

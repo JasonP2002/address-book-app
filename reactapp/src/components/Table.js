@@ -1,7 +1,13 @@
-import React from 'react';
-import JSONData from '../data/records.json';
+import React, {useState, useEffect} from 'react';
 
 function Table() {
+  const [records, setRecords] = useState(null);
+
+  useEffect(() => {
+    fetch("/api").then((res) => res.json())
+                 .then((data) => setRecords(data));
+  }, []);
+
     return (
         <table>
             <thead>
@@ -13,7 +19,8 @@ function Table() {
               </tr>
             </thead>
             <tbody>
-              {JSONData.map((record, index) => {
+              {!records ? "Could not get records :("
+              : records.map((record, index) => {
                 return <tr>
                   <td>{record.first_name}</td>
                   <td>{record.last_name}</td>
