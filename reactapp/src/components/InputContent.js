@@ -30,6 +30,10 @@ function InputContent() {
     })
     .then(res => {
       console.log("Success!");
+      document.getElementById('first_name').value = "";
+      document.getElementById('last_name').value = "";
+      document.getElementById('phone').value = "";
+      document.getElementById('email').value = "";
     })
     .catch(err => {
       console.log("Could not add record :( :", err);
