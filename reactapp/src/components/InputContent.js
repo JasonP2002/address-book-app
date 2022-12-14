@@ -29,13 +29,14 @@ function InputContent() {
       }
     })
     .then(res => {
-      if (res === "success") {
+      console.log(res.data);
+      if (res.data === "success") {
         alert("Success!");
         document.getElementById('first_name').value = "";
         document.getElementById('last_name').value = "";
         document.getElementById('phone').value = "";
         document.getElementById('email').value = "";
-      } else if (res === "could not find record") {
+      } else if (res.data === "could not find record") {
         alert("Could not find record - please check entered email address.");
       }
     })
