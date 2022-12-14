@@ -16,7 +16,7 @@ function InputContent() {
     console.log(newdata)
   }
 
-  function submit(e, url){
+  function submit(e, url, op){
     e.preventDefault();
     Axios({
       method: "POST",
@@ -29,14 +29,18 @@ function InputContent() {
       }
     })
     .then(res => {
-      console.log("Success!");
-      document.getElementById('first_name').value = "";
-      document.getElementById('last_name').value = "";
-      document.getElementById('phone').value = "";
-      document.getElementById('email').value = "";
+      if (res === "success") {
+        alert("Success!");
+        document.getElementById('first_name').value = "";
+        document.getElementById('last_name').value = "";
+        document.getElementById('phone').value = "";
+        document.getElementById('email').value = "";
+      } else if (res === "could not find record") {
+        alert("Could not find record - please check entered email address.");
+      }
     })
     .catch(err => {
-      console.log("Could not add record :( :", err);
+      console.log("Could not " + op + " record :( :", err);
     });
   }
 
@@ -48,9 +52,9 @@ function InputContent() {
           <input onChange={(e) => handle(e)} id="first_name" placeholder="Forename" value={data.first_name} type="text" />
           <input onChange={(e) => handle(e)} id="last_name" placeholder="Surname" value={data.last_name} type="text" />
           <input onChange={(e) => handle(e)} id="phone" placeholder="Telephone Number" value={data.phone} type="text" />
-          <button onClick={(e) => submit(e, "/api/add")} className="button-input" >Add</button>
-          <button onClick={(e) => submit(e, "/api/edit")} className="button-input" >Edit</button>
-          <button onClick={(e) => submit(e, "/api/delete")} className="button-input" >Delete</button>
+          <button onClick={(e) => submit(e, "/api/add", "add")} className="button-input" >Add</button>
+          <button onClick={(e) => submit(e, "/api/edit", "edit")} className="button-input" >Edit</button>
+          <button onClick={(e) => submit(e, "/api/delete", "delete")} className="button-input" >Delete</button>
         </div>
     );
 };
