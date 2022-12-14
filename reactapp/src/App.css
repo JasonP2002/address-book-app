@@ -18,8 +18,12 @@ h1 {
   background-color: grey;
 }
 
-h2 {
+h2{
   color: white;
+}
+
+h3 {
+  color: darkred;
 }
 
 .header {

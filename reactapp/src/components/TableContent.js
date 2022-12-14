@@ -6,8 +6,6 @@ function TableContent() {
         <div className="content table">
             <h2 className="header-table">Table</h2>
                 <Table />
-            <button className="edit-input">Edit</button>
-            <button className="delete-input">Delete</button>
         </div>
     );
 };

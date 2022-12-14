@@ -16,11 +16,11 @@ function InputContent() {
     console.log(newdata)
   }
 
-  function submit(e){
+  function submit(e, url){
     e.preventDefault();
     Axios({
       method: "POST",
-      url: "/api/add", 
+      url: url, 
       data: {
         first_name: data.first_name,
         last_name: data.last_name,
@@ -42,12 +42,15 @@ function InputContent() {
 
     return (
         <div className="content input">
-          <h2 className="header-input">Add</h2>
+          <h2 className="header-input">Add, Edit or Delete</h2>
+          <h3>Ensure the email is either new, or the same as the record you wish to edit/delete.</h3>
+          <input onChange={(e) => handle(e)} id="email" placeholder="Email Address" value={data.email} type="text" />
           <input onChange={(e) => handle(e)} id="first_name" placeholder="Forename" value={data.first_name} type="text" />
           <input onChange={(e) => handle(e)} id="last_name" placeholder="Surname" value={data.last_name} type="text" />
           <input onChange={(e) => handle(e)} id="phone" placeholder="Telephone Number" value={data.phone} type="text" />
-          <input onChange={(e) => handle(e)} id="email" placeholder="Email Address" value={data.email} type="text" />
-          <button onClick={(e) => submit(e)} className="button-input" >Add</button>
+          <button onClick={(e) => submit(e, "/api/add")} className="button-input" >Add</button>
+          <button onClick={(e) => submit(e, "/api/edit")} className="button-input" >Edit</button>
+          <button onClick={(e) => submit(e, "/api/delete")} className="button-input" >Delete</button>
         </div>
     );
 };
