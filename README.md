@@ -1,7 +1,7 @@
-# propel-technical-task
+# address-book-app
 
 ## Description  
-An address book web application - a technical test for Propel.  
+The first full-stack project I developed, with React front-end and NodeJS back-end.
 
 Consists of a front-end (reactapp), which GETs and POSTs from an API (server).  
 
